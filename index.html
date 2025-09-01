@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NonPry - Консультант мессенджера | Профессиональная поддержка</title>
+    <meta name="description" content="Профессиональный консультант NonPry. Поддержка пользователей, решение проблем, обучение работе с мессенджером. Быстрая и качественная помощь.">
+    <meta name="keywords" content="NonPry, консультант мессенджера, техподдержка, обучение, мобильные приложения, молодежь">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="NonPry - Консультант мессенджера | Профессиональная поддержка">
+    <meta property="og:description" content="Профессиональный консультант NonPry. Поддержка пользователей, решение проблем, обучение работе с мессенджером.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:title" content="NonPry - Консультант мессенджера | Профессиональная поддержка">
+    <meta name="twitter:description" content="Профессиональный консультант NonPry. Поддержка пользователей, решение проблем, обучение работе с мессенджером.">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #818cf8;
+            --secondary-color: #22d3ee;
+            --accent-color: #fbbf24;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+    }
+
+    @layer base {
+        * {
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .card {
+            @apply rounded-xl p-6 shadow-lg backdrop-blur-sm border transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            background: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+    }
+
+    @layer utilities {
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.6); }
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/About.js"></script>
+    <script type="text/babel" src="components/Services.js"></script>
+    <script type="text/babel" src="components/Testimonials.js"></script>
+    <script type="text/babel" src="components/Contact.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="utils/language.js"></script>
+    <script type="text/babel" src="utils/theme.js"></script>
+    <script type="text/babel" src="utils/animations.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
